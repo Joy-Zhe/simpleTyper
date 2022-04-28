@@ -1,0 +1,53 @@
+# Project: 2
+# Makefile created by Dev-C++ 5.4.0
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = ../libgraphics/exceptio.o ../libgraphics/genlib.o ../libgraphics/graphics.o ../libgraphics/linkedlist.o ../libgraphics/random.o ../libgraphics/simpio.o ../libgraphics/strlib.o main.o imgui.o $(RES)
+LINKOBJ  = ../libgraphics/exceptio.o ../libgraphics/genlib.o ../libgraphics/graphics.o ../libgraphics/linkedlist.o ../libgraphics/random.o ../libgraphics/simpio.o ../libgraphics/strlib.o main.o imgui.o $(RES)
+LIBS     = -L"C:/Users/z1367/Desktop/Study/学生机环境-Dev-cpp5.4.0及API帮助文档/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc -mwindows -g3
+INCS     = -I"C:/Users/z1367/Desktop/Study/学生机环境-Dev-cpp5.4.0及API帮助文档/Dev-Cpp/MinGW32/include" -I"E:/3210104169_郑乔尹_图形2/libgraphics"
+CXXINCS  = -I"C:/Users/z1367/Desktop/Study/学生机环境-Dev-cpp5.4.0及API帮助文档/Dev-Cpp/MinGW32/include" -I"E:/3210104169_郑乔尹_图形2/libgraphics"
+BIN      = 2.exe
+CXXFLAGS = $(CXXINCS)  -g3
+CFLAGS   = $(INCS)  -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../libgraphics/exceptio.o: ../libgraphics/exceptio.c
+	$(CC) -c ../libgraphics/exceptio.c -o ../libgraphics/exceptio.o $(CFLAGS)
+
+../libgraphics/genlib.o: ../libgraphics/genlib.c
+	$(CC) -c ../libgraphics/genlib.c -o ../libgraphics/genlib.o $(CFLAGS)
+
+../libgraphics/graphics.o: ../libgraphics/graphics.c
+	$(CC) -c ../libgraphics/graphics.c -o ../libgraphics/graphics.o $(CFLAGS)
+
+../libgraphics/linkedlist.o: ../libgraphics/linkedlist.c
+	$(CC) -c ../libgraphics/linkedlist.c -o ../libgraphics/linkedlist.o $(CFLAGS)
+
+../libgraphics/random.o: ../libgraphics/random.c
+	$(CC) -c ../libgraphics/random.c -o ../libgraphics/random.o $(CFLAGS)
+
+../libgraphics/simpio.o: ../libgraphics/simpio.c
+	$(CC) -c ../libgraphics/simpio.c -o ../libgraphics/simpio.o $(CFLAGS)
+
+../libgraphics/strlib.o: ../libgraphics/strlib.c
+	$(CC) -c ../libgraphics/strlib.c -o ../libgraphics/strlib.o $(CFLAGS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+imgui.o: imgui.c
+	$(CC) -c imgui.c -o imgui.o $(CFLAGS)
